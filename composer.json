@@ -1,0 +1,31 @@
+{
+    "name": "payselection/boilerplate",
+    "description": "Payselection boilerplate",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "illuminate/support": "^10",
+        "payselection/payselection-php-client": "^2.0"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Payselection\\Boilerplate\\": "src"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Payselection/Payselection-PayApp-SDK-PHP.git"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Payselection\\Boilerplate\\InitServiceProvider"
+            ]
+        }
+    }
+}

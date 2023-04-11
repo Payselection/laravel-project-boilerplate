@@ -1,0 +1,25 @@
+<?php
+// @formatter:off
+// phpcs:ignoreFile
+
+define('CURLOPT_POST', /** @var int $CURLOPT_POST */ $CURLOPT_POST = 47);
+define('CURLOPT_POSTFIELDS', /** @var int $CURLOPT_POSTFIELDS */ $CURLOPT_POSTFIELDS = 10015);
+define('CURLOPT_RETURNTRANSFER', /** @var int $CURLOPT_RETURNTRANSFER */ $CURLOPT_RETURNTRANSFER = 19913);
+define('CURLOPT_HTTPHEADER', /** @var int $CURLOPT_HTTPHEADER */ $CURLOPT_HTTPHEADER = 10023);
+
+/** @psalm-trace CURLOPT_POST */
+if (CURLOPT_POST) {
+    echo 'CURLOPT_POST';
+}
+/** @psalm-trace CURLOPT_POSTFIELDS */
+if (CURLOPT_POSTFIELDS) {
+    echo 'CURLOPT_POSTFIELDS';
+}
+/** @psalm-trace CURLOPT_RETURNTRANSFER */
+if (CURLOPT_RETURNTRANSFER) {
+    echo 'CURLOPT_RETURNTRANSFER';
+}
+/** @psalm-trace CURLOPT_HTTPHEADER */
+if (CURLOPT_HTTPHEADER) {
+    echo 'CURLOPT_HTTPHEADER';
+}

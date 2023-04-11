@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<psalm errorLevel="2" cacheDirectory="./.psalm_cache" phpVersion="8.1">
+    <projectFiles>
+        <directory name="app"/>
+        <ignoreFiles>
+            <directory name="app/Models"/>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+    <extraFiles>
+        <directory name="app/Models"/>
+        <directory name="vendor"/>
+    </extraFiles>
+    <plugins>
+        <pluginClass xmlns="https://getpsalm.org/schema/config" class="Psalm\LaravelPlugin\Plugin"/>
+    </plugins>
+    <stubs>
+        <file name="_psalm_stub.php"/>
+    </stubs>
+</psalm>
