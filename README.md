@@ -1,21 +1,16 @@
 # Usage
 
-Add package
-* `payselection/boilerplate`
-
-Add configuration to composer.json
+Add repository configuration to composer.json
 ```
-"require": {
-    "payselection/boilerplate": "^1.0",
-},
 "repositories": [
     {
-        "type": "path",
-        "url": "./packages/payselection/boilerplate"
+        "type": "vcs",
+        "url": "https://github.com/Payselection/laravel-project-boilerplate.git"
     }
-],
-"minimum-stability": "dev",
+]
 ```
+Set the required package version
+`composer require payselection/boilerplate:<version>`
 
 Run command to publish boilerplate files to root directory
 `php artisan vendor:publish --tag=payselection-files`
