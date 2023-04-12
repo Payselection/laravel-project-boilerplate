@@ -19,7 +19,7 @@ class CustomerInfoDataTest extends TestCase
     public function test_invalid_Email(): void
     {
         $data = DataGenerator::makeCustomerInfoData();
-        $values = ['', 'test'];
+        $values = ['test'];
         foreach ($values as $value) {
             $data['Email'] = $value;
             $this->assertThrows(function () use ($data) {
@@ -31,7 +31,7 @@ class CustomerInfoDataTest extends TestCase
     public function test_invalid_ReceiptEmail(): void
     {
         $data = DataGenerator::makeCustomerInfoData();
-        $values = ['', 'test'];
+        $values = ['test'];
         foreach ($values as $value) {
             $data['ReceiptEmail'] = $value;
             $this->assertThrows(function () use ($data) {

@@ -31,7 +31,7 @@ class ExtraDataTest extends TestCase
     public function test_invalid_ReturnUrl(): void
     {
         $data = DataGenerator::makeExtraData();
-        $values = ['', 'test'];
+        $values = ['test'];
         foreach ($values as $value) {
             $data['ReturnUrl'] = $value;
             $this->assertThrows(function () use ($data) {
@@ -43,7 +43,7 @@ class ExtraDataTest extends TestCase
     public function test_invalid_SuccessUrl(): void
     {
         $data = DataGenerator::makeExtraData();
-        $values = ['', 'test'];
+        $values = ['test'];
         foreach ($values as $value) {
             $data['SuccessUrl'] = $value;
             $this->assertThrows(function () use ($data) {
@@ -55,7 +55,7 @@ class ExtraDataTest extends TestCase
     public function test_invalid_DeclineUrl(): void
     {
         $data = DataGenerator::makeExtraData();
-        $values = ['', 'test'];
+        $values = ['test'];
         foreach ($values as $value) {
             $data['DeclineUrl'] = $value;
             $this->assertThrows(function () use ($data) {

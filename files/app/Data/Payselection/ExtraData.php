@@ -15,17 +15,11 @@ class ExtraData extends Data
     public function __construct(
         #[Url]
         public string $WebhookUrl,
-        #[Url,
-    Filled,
-    Nullable]
+        #[Url, Nullable]
         public ?string $ReturnUrl = null,
-        #[Url,
-    Filled,
-    Nullable]
+        #[Url, Nullable]
         public ?string $SuccessUrl = null,
-        #[Url,
-    Filled,
-    Nullable]
+        #[Url, Nullable]
         public ?string $DeclineUrl = null,
     ) {
     }

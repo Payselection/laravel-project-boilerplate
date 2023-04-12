@@ -10,6 +10,9 @@
     <extraFiles>
         <directory name="app/Models"/>
         <directory name="vendor"/>
+        <ignoreFiles>
+            <directory name="vendor/payselection/boilerplate/files"/>
+        </ignoreFiles>
     </extraFiles>
     <plugins>
         <pluginClass xmlns="https://getpsalm.org/schema/config" class="Psalm\LaravelPlugin\Plugin"/>

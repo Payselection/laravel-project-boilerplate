@@ -17,8 +17,7 @@ use Spatie\LaravelData\Data;
 class ReceiptSettingsData extends Data
 {
     public function __construct(
-        #[Numeric,
-    DigitsBetween(9, 12)]
+        #[Numeric, DigitsBetween(10, 12)]
         public string $inn,
         #[Email]
         public string $email,

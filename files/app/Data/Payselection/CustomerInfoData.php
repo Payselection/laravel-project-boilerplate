@@ -14,31 +14,21 @@ class CustomerInfoData extends Data
     use Filtered;
 
     public function __construct(
-        #[Email,
-    Filled,
-    Nullable]
+        #[Email, Nullable]
         public ?string $Email = null,
-        #[Email,
-    Filled,
-    Nullable]
+        #[Email, Nullable]
         public ?string $ReceiptEmail = null,
-        #[StringType,
-    Nullable]
+        #[StringType, Nullable]
         public ?string $Phone = null,
-        #[StringType,
-    Nullable]
+        #[StringType, Nullable]
         public ?string $Language = null,
-        #[StringType,
-    Nullable]
+        #[StringType, Nullable]
         public ?string $Address = null,
-        #[StringType,
-    Nullable]
+        #[StringType, Nullable]
         public ?string $Town = null,
-        #[StringType,
-    Nullable]
+        #[StringType, Nullable]
         public ?string $ZIP = null,
-        #[StringType,
-    Nullable]
+        #[StringType, Nullable]
         public ?string $Country = null,
     ) {
     }
