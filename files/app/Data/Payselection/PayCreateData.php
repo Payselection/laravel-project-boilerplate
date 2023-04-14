@@ -13,7 +13,7 @@ class PayCreateData extends Data
         public MetaData $MetaData,
         public PaymentRequest $PaymentRequest,
         public ?CustomerInfoData $CustomerInfo = null,
-        public ?ReceiptInfoData $ReceiptInfo = null,
+        public ?ReceiptData $ReceiptData = null,
     ) {
     }
 
@@ -32,8 +32,8 @@ class PayCreateData extends Data
         return $this->CustomerInfo !== null ? $this->CustomerInfo->filtered() : [];
     }
 
-    public function getReceiptInfoData(): array
+    public function getReceiptData(): array
     {
-        return $this->ReceiptInfo !== null ? $this->ReceiptInfo->filtered() : [];
+        return $this->ReceiptData !== null ? $this->ReceiptData->filtered() : [];
     }
 }

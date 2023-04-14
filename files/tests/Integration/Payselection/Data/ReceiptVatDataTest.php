@@ -3,6 +3,7 @@
 namespace Tests\Integration\Payselection\Data;
 
 use App\Data\Payselection\ReceiptVatData;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Tests\Generator\Payselection\DataGenerator;
 use Tests\TestCase;
@@ -16,14 +17,15 @@ class ReceiptVatDataTest extends TestCase
         $this->assertIsArray($data);
     }
 
-    public function test_invalid_data()
+    public function test_invalid_type()
     {
-        $data = DataGenerator::makeReceiptVat();
+        $field = 'type';
         $values = [null, ''];
+        $rules[$field] = ReceiptVatData::getValidationRules([])[$field];
         foreach ($values as $value) {
-            $data['type'] = $value;
-            $this->assertThrows(function () use ($data) {
-                ReceiptVatData::validateAndCreate($data);
+            $data[$field] = $value;
+            $this->assertThrows(function () use ($data, $rules) {
+                Validator::make($data, $rules)->validate();
             }, ValidationException::class);
         }
     }

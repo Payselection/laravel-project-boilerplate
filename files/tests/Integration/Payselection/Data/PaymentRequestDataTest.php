@@ -3,6 +3,7 @@
 namespace Tests\Integration\Payselection\Data;
 
 use App\Data\Payselection\PaymentRequest;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Tests\Generator\Payselection\DataGenerator;
 use Tests\TestCase;
@@ -18,48 +19,52 @@ class PaymentRequestDataTest extends TestCase
 
     public function test_invalid_OrderId(): void
     {
-        $data = DataGenerator::makePaymentRequest();
+        $field = 'OrderId';
         $values = [null, ''];
+        $rules[$field] = PaymentRequest::getValidationRules([])[$field];
         foreach ($values as $value) {
-            $data['OrderId'] = $value;
-            $this->assertThrows(function () use ($data) {
-                PaymentRequest::validateAndCreate($data);
+            $data[$field] = $value;
+            $this->assertThrows(function () use ($data, $rules) {
+                Validator::make($data, $rules)->validate();
             }, ValidationException::class);
         }
     }
 
     public function test_invalid_Amount(): void
     {
-        $data = DataGenerator::makePaymentRequest();
+        $field = 'Amount';
         $values = [null, ''];
+        $rules[$field] = PaymentRequest::getValidationRules([])[$field];
         foreach ($values as $value) {
-            $data['Amount'] = $value;
-            $this->assertThrows(function () use ($data) {
-                PaymentRequest::validateAndCreate($data);
+            $data[$field] = $value;
+            $this->assertThrows(function () use ($data, $rules) {
+                Validator::make($data, $rules)->validate();
             }, ValidationException::class);
         }
     }
 
     public function test_invalid_Currency(): void
     {
-        $data = DataGenerator::makePaymentRequest();
+        $field = 'Currency';
         $values = [null, ''];
+        $rules[$field] = PaymentRequest::getValidationRules([])[$field];
         foreach ($values as $value) {
-            $data['Currency'] = $value;
-            $this->assertThrows(function () use ($data) {
-                PaymentRequest::validateAndCreate($data);
+            $data[$field] = $value;
+            $this->assertThrows(function () use ($data, $rules) {
+                Validator::make($data, $rules)->validate();
             }, ValidationException::class);
         }
     }
 
     public function test_invalid_Description(): void
     {
-        $data = DataGenerator::makePaymentRequest();
+        $field = 'Description';
         $values = [null, ''];
+        $rules[$field] = PaymentRequest::getValidationRules([])[$field];
         foreach ($values as $value) {
-            $data['Description'] = $value;
-            $this->assertThrows(function () use ($data) {
-                PaymentRequest::validateAndCreate($data);
+            $data[$field] = $value;
+            $this->assertThrows(function () use ($data, $rules) {
+                Validator::make($data, $rules)->validate();
             }, ValidationException::class);
         }
     }

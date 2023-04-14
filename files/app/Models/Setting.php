@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enums\Settings as Enums;
+use App\Enum\Settings as Enum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -76,10 +76,10 @@ class Setting extends Model
     }
 
     /**
-     * @return Enums\Attributes[]
+     * @return Enum\Attributes[]
      */
     public function attributesEnum(): array
     {
-        return Enums\Attributes::cases();
+        return Enum\Attributes::cases();
     }
 }

@@ -3,6 +3,7 @@
 namespace Tests\Integration\Payselection\Data;
 
 use App\Data\Payselection\CustomerInfoData;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Tests\Generator\Payselection\DataGenerator;
 use Tests\TestCase;
@@ -18,24 +19,26 @@ class CustomerInfoDataTest extends TestCase
 
     public function test_invalid_Email(): void
     {
-        $data = DataGenerator::makeCustomerInfoData();
+        $field = 'Email';
         $values = ['test'];
+        $rules[$field] = CustomerInfoData::getValidationRules([])[$field];
         foreach ($values as $value) {
-            $data['Email'] = $value;
-            $this->assertThrows(function () use ($data) {
-                CustomerInfoData::validateAndCreate($data);
+            $data[$field] = $value;
+            $this->assertThrows(function () use ($data, $rules) {
+                Validator::make($data, $rules)->validate();
             }, ValidationException::class);
         }
     }
 
     public function test_invalid_ReceiptEmail(): void
     {
-        $data = DataGenerator::makeCustomerInfoData();
+        $field = 'ReceiptEmail';
         $values = ['test'];
+        $rules[$field] = CustomerInfoData::getValidationRules([])[$field];
         foreach ($values as $value) {
-            $data['ReceiptEmail'] = $value;
-            $this->assertThrows(function () use ($data) {
-                CustomerInfoData::validateAndCreate($data);
+            $data[$field] = $value;
+            $this->assertThrows(function () use ($data, $rules) {
+                Validator::make($data, $rules)->validate();
             }, ValidationException::class);
         }
     }

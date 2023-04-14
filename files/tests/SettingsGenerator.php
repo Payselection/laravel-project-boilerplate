@@ -28,7 +28,7 @@ class SettingsGenerator
                 'address' => $faker->address(),
                 'sno' => Sno::osn->value,
                 'vat' => Vat::none->value,
-                'item_type' => ItemType::award->value,
+                'item_type' => ItemType::another->value,
                 'payment_type' => PaymentType::full_payment->value,
             ]
         ];

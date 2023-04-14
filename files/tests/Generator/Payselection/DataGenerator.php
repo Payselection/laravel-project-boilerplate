@@ -32,12 +32,12 @@ class DataGenerator
         $faker = Container::getInstance()->make(Generator::class);
         return [
             'name' => $faker->name(),
-            'price' => $faker->randomFloat(),
-            'quantity' => 1,
-            'sum' => $faker->randomFloat(),
+            'price' => 1.99,
+            'quantity' => 1.999,
+            'sum' => 1.99,
             'measurement_unit' => null,
             'payment_method' => PaymentType::full_payment->value,
-            'payment_object' => ItemType::award->value,
+            'payment_object' => ItemType::another->value,
             'vat' => static::makeReceiptVat(),
         ];
     }

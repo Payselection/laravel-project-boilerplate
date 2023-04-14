@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enums\ReceiptSettings as Enums;
+use App\Enum\ReceiptSettings as Enum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,10 +18,10 @@ use Illuminate\Support\Carbon;
  * @property string $inn
  * @property string $email
  * @property string $address
- * @property Enums\Sno $sno
- * @property Enums\Vat $vat
- * @property Enums\ItemType $item_type
- * @property Enums\PaymentType $payment_type
+ * @property Enum\Sno $sno
+ * @property Enum\Vat $vat
+ * @property Enum\ItemType $item_type
+ * @property Enum\PaymentType $payment_type
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @method static Builder|ReceiptSetting newModelQuery()
@@ -42,17 +42,17 @@ class ReceiptSetting extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'sno' => Enums\Sno::class,
-        'vat' => Enums\Vat::class,
-        'item_type' => Enums\ItemType::class,
-        'payment_type' => Enums\PaymentType::class,
+        'sno' => Enum\Sno::class,
+        'vat' => Enum\Vat::class,
+        'item_type' => Enum\ItemType::class,
+        'payment_type' => Enum\PaymentType::class,
     ];
 
     protected $attributes = [
-        'sno' => Enums\Sno::osn,
-        'vat' => Enums\Vat::none,
-        'item_type' => Enums\ItemType::award,
-        'payment_type' => Enums\PaymentType::full_payment,
+        'sno' => Enum\Sno::osn,
+        'vat' => Enum\Vat::none,
+        'item_type' => Enum\ItemType::another,
+        'payment_type' => Enum\PaymentType::full_payment,
     ];
 
     /**
@@ -64,42 +64,42 @@ class ReceiptSetting extends Model
     }
 
     /**
-     * @return Enums\Sno[]
+     * @return Enum\Sno[]
      */
     public function snoEnum(): array
     {
-        return Enums\Sno::cases();
+        return Enum\Sno::cases();
     }
 
     /**
-     * @return Enums\Vat[]
+     * @return Enum\Vat[]
      */
     public function vatEnum(): array
     {
-        return Enums\Vat::cases();
+        return Enum\Vat::cases();
     }
 
     /**
-     * @return Enums\ItemType[]
+     * @return Enum\ItemType[]
      */
     public function itemTypeEnum(): array
     {
-        return Enums\ItemType::cases();
+        return Enum\ItemType::cases();
     }
 
     /**
-     * @return Enums\PaymentType[]
+     * @return Enum\PaymentType[]
      */
     public function paymentTypeEnum(): array
     {
-        return Enums\PaymentType::cases();
+        return Enum\PaymentType::cases();
     }
 
     /**
-     * @return Enums\Attributes[]
+     * @return Enum\Attributes[]
      */
     public function attributesEnum(): array
     {
-        return Enums\Attributes::cases();
+        return Enum\Attributes::cases();
     }
 }

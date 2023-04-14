@@ -6,7 +6,7 @@ use App\Enum\EnumTitle;
 
 enum ItemType: string implements EnumTitle
 {
-    case award = 'award';
+    case another = 'another';
     case commodity = 'commodity';
     case excise = 'excise';
     case job = 'job';
@@ -16,7 +16,7 @@ enum ItemType: string implements EnumTitle
     public function title(): string
     {
         $title = match ($this) {
-            ItemType::award => __('Иной предмет расчёта'),
+            ItemType::another => __('Иной предмет расчёта'),
             ItemType::commodity => __('Товар'),
             ItemType::excise => __('Подакцизный товар'),
             ItemType::job => __('Работа'),
