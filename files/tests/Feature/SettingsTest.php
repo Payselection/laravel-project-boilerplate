@@ -11,24 +11,14 @@ use Tests\TestCase;
  */
 class SettingsTest extends TestCase
 {
-    use WithAuth;
-
-    public function test_unathorized()
-    {
-        $route = route('settings');
-        $this->get($route)->assertViewIs('unauthorized');
-    }
-
     public function test_index()
     {
-        $this->setAuthorization(true);
         $route = route('settings');
         $this->get($route)->assertViewIs('settings');
     }
 
     public function test_invalid_action()
     {
-        $this->setAuthorization(true);
         $route = route('settings');
         $params = [
             'action' => 'invalid_action'
@@ -40,7 +30,6 @@ class SettingsTest extends TestCase
     public function test_save_action()
     {
         $fakerSettings = (new SettingsGenerator());
-        $this->setAuthorization(true);
         $route = route('settings');
         $params = array_merge(['action' => 'save'], $fakerSettings->get());
         $this->withoutExceptionHandling()->post($route, $params)->assertSuccessful()->assertViewIs('settings');

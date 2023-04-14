@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 trait WithRequest
-{    
+{
     protected function getRequest(array $data = []): Request
     {
         $request = new Request();

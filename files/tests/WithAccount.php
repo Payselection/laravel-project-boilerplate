@@ -8,7 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 trait WithAccount
 {
-    use RefreshDatabase, ModelsFactory;
+    use RefreshDatabase;
+    use ModelsFactory;
 
     protected Account $account;
 

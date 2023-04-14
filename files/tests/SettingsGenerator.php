@@ -11,7 +11,6 @@ use Illuminate\Container\Container;
 
 class SettingsGenerator
 {
-
     protected function makeDefault(): array
     {
         $faker = Container::getInstance()->make(Generator::class);

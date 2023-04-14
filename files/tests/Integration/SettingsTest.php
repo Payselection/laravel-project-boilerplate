@@ -16,7 +16,8 @@ use Tests\WithRequest;
  */
 class SettingsTest extends TestCase
 {
-    use WithAccount, WithRequest;
+    use WithAccount;
+    use WithRequest;
 
     public function test_save_fiiled()
     {
@@ -62,7 +63,7 @@ class SettingsTest extends TestCase
         $settings = new Settings($this->account);
         $fakerSettings = new SettingsGenerator();
         $data = $fakerSettings->get();
-        
+
         $values = [null, ''];
         foreach ($values as $value) {
             $data['settings']['public_key'] = $value;
@@ -76,7 +77,7 @@ class SettingsTest extends TestCase
         $settings = new Settings($this->account);
         $fakerSettings = new SettingsGenerator();
         $data = $fakerSettings->get();
-        
+
         $values = [null, ''];
         foreach ($values as $value) {
             $data['settings']['secret_key'] = $value;
@@ -85,28 +86,19 @@ class SettingsTest extends TestCase
         }
     }
 
-   public function test_save_invalid_inn()
+    public function test_save_invalid_inn()
     {
         $faker = Container::getInstance()->make(Generator::class);
         $settings = new Settings($this->account);
         $fakerSettings = new SettingsGenerator();
         $data = $fakerSettings->get();
-        
-        $data['receiptSettings']['inn'] = $faker->randomNumber(null, 1);
-        $request = $this->getRequest($data);
-        $this->assertThrows(fn() => $settings->save($request), ValidationException::class);
-        $data['receiptSettings']['inn'] = $faker->randomNumber(null, 20);
-        $request = $this->getRequest($data);
-        $this->assertThrows(fn() => $settings->save($request), ValidationException::class);
-        $data['receiptSettings']['inn'] = 'test';
-        $request = $this->getRequest($data);
-        $this->assertThrows(fn() => $settings->save($request), ValidationException::class);
-        $data['receiptSettings']['inn'] = '';
-        $request = $this->getRequest($data);
-        $this->assertThrows(fn() => $settings->save($request), ValidationException::class);
-        $data['receiptSettings']['inn'] = null;
-        $request = $this->getRequest($data);
-        $this->assertThrows(fn() => $settings->save($request), ValidationException::class);
+
+        $values = [null, '', 'test', $faker->randomNumber(null, 1), $faker->randomNumber(null, 20)];
+        foreach ($values as $value) {
+            $data['receiptSettings']['inn'] = $value;
+            $request = $this->getRequest($data);
+            $this->assertThrows(fn() => $settings->save($request), ValidationException::class);
+        }
     }
 
     public function test_save_invalid_email()
@@ -128,7 +120,7 @@ class SettingsTest extends TestCase
         $settings = new Settings($this->account);
         $fakerSettings = new SettingsGenerator();
         $data = $fakerSettings->get();
-        
+
         $values = [null, ''];
         foreach ($values as $value) {
             $data['receiptSettings']['address'] = $value;
