@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data\Payselection;
+namespace App\Payselection\Data;
 
 use Spatie\LaravelData\Attributes\Validation\Filled;
 use Spatie\LaravelData\Data;

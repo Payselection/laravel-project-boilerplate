@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data\Payselection;
+namespace App\Payselection\Data;
 
 use App\Data\Trait\Filtered;
 use Spatie\LaravelData\Attributes\Validation\Email;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data\Payselection;
+namespace App\Payselection\Data;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Validator;

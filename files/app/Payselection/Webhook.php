@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Payselection;
+namespace App\Payselection;
 
-use App\Enum\PaySelection\EventType;
+use App\Payselection\Enum\EventTypeEnum;
 use App\Exceptions\BaseException;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
@@ -15,9 +15,13 @@ class Webhook
 
     public function __construct()
     {
-        $this->hookPay = ClientFacade::get()->hookPay();
+        $this->hookPay = app(PayselectionClient::class)->client()->hookPay();
     }
 
+    /**
+     * @param WebhookHandlerAbstract $handler
+     * @return Response|ResponseFactory
+     */
     public function handle(WebhookHandlerAbstract $handler): Response|ResponseFactory
     {
         try {
@@ -25,35 +29,35 @@ class Webhook
             $handler->setHookPay($this->hookPay);
 
             switch ($this->hookPay->event) {
-                case EventType::payment->value:
+                case EventTypeEnum::payment->value:
                     $result = $handler->payment();
                     break;
 
-                case EventType::fail->value:
+                case EventTypeEnum::fail->value:
                     $result = $handler->fail();
                     break;
 
-                case EventType::refund->value:
+                case EventTypeEnum::refund->value:
                     $result = $handler->refund();
                     break;
 
-                case EventType::block->value:
+                case EventTypeEnum::block->value:
                     $result = $handler->block();
                     break;
 
-                case EventType::cancel->value:
+                case EventTypeEnum::cancel->value:
                     $result = $handler->cancel();
                     break;
 
-                case EventType::charge->value:
+                case EventTypeEnum::charge->value:
                     $result = $handler->charge();
                     break;
 
-                case EventType::redirect3DS->value:
+                case EventTypeEnum::redirect3DS->value:
                     $result = $handler->redirect3DS();
                     break;
 
-                case EventType::payout->value:
+                case EventTypeEnum::payout->value:
                     $result = $handler->payout();
                     break;
 

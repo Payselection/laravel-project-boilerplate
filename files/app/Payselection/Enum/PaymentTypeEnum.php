@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Enum\PaySelection;
+namespace App\Payselection\Enum;
 
-enum PaymentType: int
+enum PaymentTypeEnum: int
 {
     case cash = 0;
     case card = 1;

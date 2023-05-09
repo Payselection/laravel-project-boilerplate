@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
+ * Example of Account model factory
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Account>
  */
 class AccountFactory extends Factory
@@ -18,7 +19,7 @@ class AccountFactory extends Factory
     public function definition(): array
     {
         return [
-            'insales_id' => Str::random(10),
+            'external_id' => Str::random(10),
             'shop' => fake()->url(),
             'password' => Str::random(10),
         ];

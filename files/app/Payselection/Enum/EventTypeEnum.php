@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Enum\PaySelection;
+namespace App\Payselection\Enum;
 
-enum EventType: string
+enum EventTypeEnum: string
 {
     case payment = 'Payment';
     case fail = 'Fail';

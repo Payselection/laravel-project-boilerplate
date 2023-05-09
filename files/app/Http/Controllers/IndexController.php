@@ -7,7 +7,6 @@ namespace App\Http\Controllers;
 use App\Exceptions as AppException;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
-use App\Services\Requests\SettingsRequest;
 use App\Services\Settings;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;

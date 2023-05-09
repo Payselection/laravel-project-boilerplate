@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Redis;
 
 class ConnectionChecker
 {
+    /**
+     * @param string|null $connection
+     * @return boolean
+     */
     public static function isDatabaseReady(?string $connection = null): bool
     {
         $isReady = true;

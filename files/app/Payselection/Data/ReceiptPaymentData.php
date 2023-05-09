@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Data\Payselection;
+namespace App\Payselection\Data;
 
-use App\Enum\PaySelection\PaymentType;
+use App\Payselection\Enum\PaymentTypeEnum;
 use Spatie\LaravelData\Attributes\Validation\Filled;
 use Spatie\LaravelData\Data;
 
 class ReceiptPaymentData extends Data
 {
     public function __construct(
-        public PaymentType $type,
+        public PaymentTypeEnum $type,
         #[Filled]
         public float $sum,
     ) {

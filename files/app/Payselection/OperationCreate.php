@@ -1,20 +1,26 @@
 <?php
 
-namespace App\Services\Payselection;
+namespace App\Payselection;
 
-use App\Data\Payselection\PayCreateData;
+use App\Payselection\Data\PayCreateData;
 use App\Exceptions\BaseException;
 
 class OperationCreate
 {
+    /**
+     * @param PayCreateData $data
+     */
     public function __construct(
         protected PayCreateData $data,
     ) {
     }
 
+    /**
+     * @return string
+     */
     public function make(): string
     {
-        $response = ClientFacade::get()->createWebPay($this->data->filtered());
+        $response = app(PayselectionClient::class)->client()->createWebPay($this->data->filtered());
         if (!$response->redirectUrl) {
             throw new BaseException('Redirect url is missing');
         }

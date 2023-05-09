@@ -12,7 +12,7 @@ class DataGenerator
 {
     /**
      * Generate params for ReceiptVatData
-     * @see \App\Data\Payselection\ReceiptVatData
+     * @see \App\Payselection\Data\ReceiptVatData
      * @return array
      */
     public static function makeReceiptVat(mixed $type = null): array
@@ -24,7 +24,7 @@ class DataGenerator
 
     /**
      * Generate params for ReceiptItemData
-     * @see \App\Data\Payselection\ReceiptItemData
+     * @see \App\Payselection\Data\ReceiptItemData
      * @return array
      */
     public static function makeReceiptItem(): array
@@ -44,7 +44,7 @@ class DataGenerator
 
     /**
      * Generate params for PaymentRequest
-     * @see \App\Data\Payselection\PaymentRequest
+     * @see \App\Payselection\Data\PaymentRequest
      * @return array
      */
     public static function makePaymentRequest(): array
@@ -61,7 +61,7 @@ class DataGenerator
 
     /**
      * Generate params for CustomerInfoData
-     * @see \App\Data\Payselection\CustomerInfoData
+     * @see \App\Payselection\Data\CustomerInfoData
      * @return array
      */
     public static function makeCustomerInfoData(): array
@@ -81,7 +81,7 @@ class DataGenerator
 
     /**
      * Generate params for ExtraData
-     * @see \App\Data\Payselection\ExtraData
+     * @see \App\Payselection\Data\ExtraData
      * @return array
      */
     public static function makeExtraData(): array

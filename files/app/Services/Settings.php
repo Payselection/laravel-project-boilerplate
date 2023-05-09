@@ -16,6 +16,9 @@ class Settings
     protected Setting $settings;
     protected ReceiptSetting $receiptSettings;
 
+    /**
+     * @param SettingableModel $model
+     */
     public function __construct(SettingableModel $model)
     {
         $settings = $model->settings()->first();
@@ -34,6 +37,10 @@ class Settings
         $this->receiptSettings = $receiptSettings;
     }
 
+    /**
+     * @param Request $request
+     * @return Setting
+     */
     public function save(Request $request): Setting
     {
         $settingsData = SettingsData::fromRequest($request);
@@ -58,6 +65,9 @@ class Settings
         return $this->settings;
     }
 
+    /**
+     * @return void
+     */
     public function delete(): void
     {
         $this->model->settings()->each(function (Setting $settings) {
@@ -65,11 +75,17 @@ class Settings
         });
     }
 
+    /**
+     * @return Setting
+     */
     public function getSettings(): Setting
     {
         return $this->settings;
     }
 
+    /**
+     * @return ReceiptSetting
+     */
     public function getReceiptSettings(): ReceiptSetting
     {
         return $this->receiptSettings;

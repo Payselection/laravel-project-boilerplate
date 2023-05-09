@@ -2,7 +2,7 @@
 
 namespace Tests\Integration\Payselection\Data;
 
-use App\Data\Payselection\CustomerInfoData;
+use App\Payselection\Data\CustomerInfoData;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Tests\Generator\Payselection\DataGenerator;
