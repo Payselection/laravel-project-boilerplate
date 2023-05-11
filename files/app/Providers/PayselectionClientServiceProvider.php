@@ -21,7 +21,7 @@ class PayselectionClientServiceProvider extends ServiceProvider implements Defer
 
             $route = Route::getCurrentRoute();
             if (!is_null($route) && $route->hasParameter('transactionId')) {
-                $transactionId = $route->parameter('transactionId')
+                $transactionId = $route->parameter('transactionId');
                 $configData = ClientConfigData::validateAndCreate([
                     'site_id' => 'site_id',
                     'secret_key' => 'secret_key',
