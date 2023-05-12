@@ -3,8 +3,7 @@
     "description": "Payselection boilerplate",
     "type": "library",
     "license": "MIT",
-    "require": {
-        "illuminate/support": "^10",
+    "require-dev": {
         "payselection/payselection-php-client": "^2.0"
     },
     "autoload": {
